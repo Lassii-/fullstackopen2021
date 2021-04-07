@@ -20,8 +20,10 @@ const App = () => {
         }
     }
 
-    const handleInputChange = (event) => {
+    const handleNameChange = (event) => {
         setNewName(event.target.value)
+    }
+    const handleNumberChange = (event) => {
         setNewNumber(event.target.value)
     }
 
@@ -32,10 +34,10 @@ const App = () => {
             <h2>Phonebook</h2>
             <form onSubmit={addPerson}>
                 <div>
-                    Name: <input value={newName} onChange={handleInputChange} />
+                    Name: <input value={newName} onChange={handleNameChange} />
                 </div>
                 <div>
-                    Number: <input value={newNumber} onChange={handleInputChange} />
+                    Number: <input value={newNumber} onChange={handleNumberChange} />
                 </div>
                 <div>
                     <button type="submit">Add</button>
