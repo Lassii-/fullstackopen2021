@@ -9,6 +9,7 @@ const App = () => {
     ])
     const [newName, setNewName] = useState('')
     const [newNumber, setNewNumber] = useState('')
+    const [filter, setFilter] = useState('')
 
     const addPerson = (event) => {
         event.preventDefault()
@@ -52,14 +53,17 @@ const App = () => {
     const handleNumberChange = (event) => {
         setNewNumber(event.target.value)
     }
-
-    const personsToShow = showAll ? persons : notes.filter(note => note.important)
+    const handleFilterChange = (event) => {
+        setFilter(event.target.value)
+    }
 
     const Person = (props) => <p>{props.name} {props.number}</p>
 
     return (
         <div>
             <h2>Phonebook</h2>
+            Filter Shown: <input value={filter} onChange={handleFilterChange} />
+            <h2>Add new</h2>
             <form onSubmit={addPerson}>
                 <div>
                     Name: <input value={newName} onChange={handleNameChange} />
