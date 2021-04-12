@@ -77,7 +77,14 @@ const App = () => {
                 </div>
             </form>
             <h2>Numbers</h2>
-            {persons.map(person => <Person key={persons.indexOf(person)} name={person.name} number={person.number} />)}
+            {persons.filter(person => {
+                if (!filter) {
+                    return true
+                }
+                if (person.name.includes(filter)) {
+                    return true
+                }
+            }).map(person => <Person key={persons.indexOf(person)} name={person.name} number={person.number} />)}
         </div>
     )
 }
