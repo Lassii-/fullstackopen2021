@@ -46,30 +46,31 @@ const App = () => {
             window.alert(`You need to input both the name and number!`)
         }
     }
-
-    const handleNameChange = (event) => {
-        setNewName(event.target.value)
-    }
-    const handleNumberChange = (event) => {
-        setNewNumber(event.target.value)
-    }
-    const handleFilterChange = (event) => {
-        setFilter(event.target.value)
-    }
-
+    /* Old event.target.value implementation
+        const handleNameChange = (event) => {
+            setNewName(event.target.value)
+        }
+        const handleNumberChange = (event) => {
+            setNewNumber(event.target.value)
+        }
+    
+        const handleFilterChange = (event) => {
+            setFilter(event.target.value)
+        }
+    */
     const Person = (props) => <p>{props.name} {props.number}</p>
 
     return (
         <div>
             <h2>Phonebook</h2>
-            Filter Shown: <input value={filter} onChange={handleFilterChange} />
+            Filter Shown: <input value={filter} onChange={event => setFilter(event.target.value)} />
             <h2>Add new</h2>
             <form onSubmit={addPerson}>
                 <div>
-                    Name: <input value={newName} onChange={handleNameChange} />
+                    Name: <input value={newName} onChange={event => setNewName(event.target.value)} />
                 </div>
                 <div>
-                    Number: <input value={newNumber} onChange={handleNumberChange} />
+                    Number: <input value={newNumber} onChange={event => setNewNumber(event.target.value)} />
                 </div>
                 <div>
                     <button type="submit">Add</button>
